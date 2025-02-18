@@ -26,13 +26,26 @@
 					</DataTemplate>
 				</ComboBox.ItemTemplate>
 			</ComboBox>
-			<Button Command="{Binding ToAddNewPartner}" VerticalAlignment="Center" Content="Добавить партнера"/>
+			<ComboBox ItemsSource="{Binding SortedValues}" SelectedItem="{Binding SelectedSortedValue}" />
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="{Binding CurrentCount}"/>
+				<TextBlock Text=" Из "/>
+				<TextBlock Text="{Binding AllCount}"/>
+			</StackPanel>
+			<StackPanel>
+				<RadioButton Content="По возрастанию" CommandParameter="1" Command="{Binding SortMode}" />
+				<RadioButton Content="По убыванию" CommandParameter="2" Command="{Binding SortMode}" />
+
+
+			</StackPanel>
+				<Button Command="{Binding ToAddNewPartner}" VerticalAlignment="Center" Content="Добавить партнера"/>
+				<Button Command="{Binding Update}" VerticalAlignment="Center" Content="Добавить"/>
 		</StackPanel>
-		<ListBox Grid.Row="2" ItemsSource="{Binding Partners}">
+		<ListBox Grid.Row="2" ItemsSource="{Binding Partners}" SelectionMode="Multiple" SelectedItems="{Binding SelectedPartners}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<Border BorderBrush="Black" BorderThickness="1">
-						<Grid ColumnDefinitions="6*, *" Margin="20">
+						<Grid ColumnDefinitions="6*, *" Margin="20" >
 							<StackPanel>
 								<StackPanel Orientation="Horizontal">
 									<TextBlock Text="{Binding PartnerType.PartnerTypeName}" FontSize="20"/>

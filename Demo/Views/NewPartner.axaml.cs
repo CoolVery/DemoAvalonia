@@ -18,4 +18,7 @@ public partial class NewPartner : UserControl
         // Отменяем ввод (делаем вид, что ничего не произошло)
         e.Handled = true;
     }
+    public void NumericUpDown_KeyDown(object? sender, KeyEventArgs e) {
+        e.Handled = true;
+    }
 }

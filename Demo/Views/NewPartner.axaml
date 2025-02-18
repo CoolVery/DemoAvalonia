@@ -17,7 +17,8 @@
 				</DataTemplate>
 			</ComboBox.ItemTemplate>
 		</ComboBox>
-		<TextBox Watermark="Рейтинг" Text="{Binding PartnerRaiting}" />
+			
+		<NumericUpDown Watermark="Рейтинг" Value="{Binding NewPartner.PartnerRating}" Increment="1" Minimum="1" Maximum="10" KeyDown="NumericUpDown_KeyDown"/>
 		<TextBox  Watermark="Адрес" Text="{Binding NewPartner.PartnerAdress}" />
 		<TextBox Watermark="Телефон" Text="{Binding NewPartner.PartnerAdress}"/>
 		<TextBox Watermark="Email" Text="{Binding NewPartner.PartnerAdress}"/>
